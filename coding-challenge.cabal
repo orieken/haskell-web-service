@@ -28,10 +28,9 @@ executable coding-challenge
     , wai >= 3.2.3
 
 test-suite spec
-  main-is:
-    MainSpec.hs
-  type:
-    exitcode-stdio-1.0
+  main-is: MainSpec.hs
+  default-language:    Haskell2010
+  type: exitcode-stdio-1.0
   ghc-options:
     -Wall
   hs-source-dirs:
