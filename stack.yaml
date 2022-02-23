@@ -42,6 +42,7 @@ packages:
 #
 extra-deps:
   - wai-test-3.0.0@sha256:8c93227edf37be4005c1ec36ba71800be6c47f53600739d921f64ea4a60e3dc8,588
+  - mr-env-0.1.0.4@sha256:56439c7df09a83b72b170f104723293643ad2635df03cdcd174a05d0d73e788d,1055
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

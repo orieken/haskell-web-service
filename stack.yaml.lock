@@ -18,3 +18,10 @@ packages:
       sha256: de8f3ed2bc7505b9656a382b3f7ffa4d71d092caca8d1df850275327f40e91c6
       size: 153
     hackage: wai-test-3.0.0@sha256:8c93227edf37be4005c1ec36ba71800be6c47f53600739d921f64ea4a60e3dc8,588
+- original:
+    hackage: mr-env-0.1.0.4@sha256:56439c7df09a83b72b170f104723293643ad2635df03cdcd174a05d0d73e788d,1055
+  completed:
+    pantry-tree:
+      sha256: da91d4e0f5aff5336e3e73ecb1d44fe595dd47bc572335956ba30d937d14573d
+      size: 376
+    hackage: mr-env-0.1.0.4@sha256:56439c7df09a83b72b170f104723293643ad2635df03cdcd174a05d0d73e788d,1055
