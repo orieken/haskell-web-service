@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
 module App (app) where
 
+import Network.Wai.Middleware.Cors
 import Data.Aeson (FromJSON, ToJSON)
 import GHC.Generics
 import Web.Scotty
@@ -30,6 +31,7 @@ hello = do
 
 app :: ScottyM ()
 app = do
+  middleware simpleCors
   get "/" hello
   get "/users" allU
   get "/users/:id" $ do

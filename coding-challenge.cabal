@@ -27,6 +27,7 @@ executable coding-challenge
     , warp >= 3.3.19
     , wai >= 3.2.3
     , mr-env
+    , wai-cors
 
 test-suite spec
   main-is: MainSpec.hs
@@ -51,3 +52,4 @@ test-suite spec
     , hspec-wai-json
     , hspec-expectations
     , mr-env
+    , wai-cors
