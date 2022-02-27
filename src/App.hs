@@ -1,39 +1,38 @@
-{-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
 module App (app) where
 
 import Network.Wai.Middleware.Cors
-import Data.Aeson (FromJSON, ToJSON)
-import GHC.Generics
 import Web.Scotty
-
-data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
-instance ToJSON User
-instance FromJSON User
-
-matchesId :: Int -> User -> Bool
-matchesId id user = userId user == id
-
-bob :: User
-bob = User { userId = 1, userName = "Bob" }
-jenny :: User
-jenny = User { userId = 3, userName = "Jenny" }
-
-allUsers :: [User]
-allUsers = [bob, jenny]
-
-allU :: ActionM ()
-allU = do
-  json allUsers
+import User
+import Control.Monad.Trans (liftIO)
+import qualified Data.ByteString.Lazy as B
+import Data.Aeson (decode)
 
 hello :: ActionM ()
 hello = do
   text "hello world! lll"
 
+jsonFile :: FilePath
+jsonFile = "./src/users.json"
+
+getJSON :: IO B.ByteString
+getJSON = B.readFile jsonFile
+
+getUsers :: ActionM ()
+getUsers = do
+  usersFile <- liftIO getJSON 
+  let users = (decode usersFile :: Maybe [User])
+  json users
+
+addUsers :: ActionM ()
+addUsers = do
+  users <- jsonData :: ActionM User
+  liftIO $ print users
+  json users
+
 app :: ScottyM ()
 app = do
   middleware simpleCors
   get "/" hello
-  get "/users" allU
-  get "/users/:id" $ do
-    id <- param "id"
-    json (filter (matchesId id) allUsers)
+  get "/users" getUsers
+  post "/users" addUsers

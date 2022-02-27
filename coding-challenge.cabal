@@ -17,7 +17,9 @@ executable coding-challenge
   hs-source-dirs:      src
   main-is: Main.hs
   default-language:    Haskell2010
-  other-modules: App
+  other-modules: 
+    App,
+    User
   ghc-options:
     -Wall
   build-depends:
@@ -28,6 +30,10 @@ executable coding-challenge
     , wai >= 3.2.3
     , mr-env
     , wai-cors
+    , bytestring >= 0.10.12.0
+    , http-types
+    , text
+    , mtl >= 2.2.2
 
 test-suite spec
   main-is: MainSpec.hs
@@ -53,3 +59,4 @@ test-suite spec
     , hspec-expectations
     , mr-env
     , wai-cors
+    , bytestring >= 0.10.12.0
