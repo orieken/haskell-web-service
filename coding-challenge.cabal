@@ -60,3 +60,6 @@ test-suite spec
     , mr-env
     , wai-cors
     , bytestring >= 0.10.12.0
+    , http-types
+    , text
+    , mtl >= 2.2.2
